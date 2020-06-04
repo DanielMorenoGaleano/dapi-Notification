@@ -80,5 +80,9 @@ public class RequestDTO {
 		this.layoutId = layoutId;
 	}
 
+	@Override
+	public String toString() {
+		return "{\r\n" + "  \"orderId\": \"" + orderId.trim() + "\",\r\n" + "  \"lastName\": \"" + lastName.trim() + "\",\r\n" + "  \"contactIds\": " + contactIds.toString().replace("[","[\"").replace("]","\"]") + ",\r\n" + "  \"lang\": \"" + lang + "\",\r\n" + "  \"layoutId\": \"" + layoutId + "\"\r\n" + "}";
+	}
 
 }

@@ -17,6 +17,7 @@
 		<timestamp>${maven.build.timestamp}</timestamp>
 		<build-helper-maven-plugin-version>1.9.1</build-helper-maven-plugin-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<skipTests>true</skipTests>
 		<version.maven-surefire-plugin>2.15</version.maven-surefire-plugin>
 
 		<maven.compiler.source>1.7</maven.compiler.source>
@@ -150,6 +151,9 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${version.maven-surefire-plugin}</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -189,10 +193,10 @@
 				<artifactId>fabric8-maven-plugin</artifactId>
 				<version>1.2.0.redhat-630329</version>
 				<configuration>
-					<bundles>mvn:${project.groupId}/${project.artifactId}/${project.version};start-level=70</bundles>
+					<bundles>mvn:${project.groupId}/${project.artifactId}/${project.version};start-level=80</bundles>
 					<includeArtifact>false</includeArtifact>
-					<parentProfiles>default feature-camel feature-cxf</parentProfiles>
-					<features>camel-cxf camel-metrics camel-http camel-http4 activemq-camel camel-metrics</features>
+					<parentProfiles>feature-camel feature-cxf</parentProfiles>
+					<features>camel-cxf camel-metrics camel-mail</features>
 					<profile>dapiusernotifications</profile>
 					<version>${timestamp}</version>
 					<jolokiaUrl>http://localhost:8181/jolokia</jolokiaUrl>
